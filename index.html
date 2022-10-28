@@ -25,15 +25,271 @@
 
 -->
 
-<!DOCTYPE html>
-<html >
-<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-<script>LA.init({id: "Joiig8FV7Dp4Mau8",ck: "Joiig8FV7Dp4Mau8"})</script>
-</head>
-  <meta charset="UTF-8">
-  <title>keyudong论坛网</title>  
+#version:emlog 6.0.1
+#date:2022-10-28 19:26
+#tableprefix:emlog_
+DROP TABLE IF EXISTS emlog_attachment;
+CREATE TABLE `emlog_attachment` (
+  `aid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `blogid` int(10) unsigned NOT NULL DEFAULT '0',
+  `filename` varchar(255) NOT NULL DEFAULT '',
+  `filesize` int(10) NOT NULL DEFAULT '0',
+  `filepath` varchar(255) NOT NULL DEFAULT '',
+  `addtime` bigint(20) NOT NULL DEFAULT '0',
+  `width` int(10) NOT NULL DEFAULT '0',
+  `height` int(10) NOT NULL DEFAULT '0',
+  `mimetype` varchar(40) NOT NULL DEFAULT '',
+  `thumfor` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`aid`),
+  KEY `blogid` (`blogid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
+DROP TABLE IF EXISTS emlog_blog;
+CREATE TABLE `emlog_blog` (
+  `gid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `date` bigint(20) NOT NULL,
+  `content` longtext NOT NULL,
+  `excerpt` longtext NOT NULL,
+  `thumbs` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(200) NOT NULL DEFAULT '',
+  `author` int(10) NOT NULL DEFAULT '1',
+  `sortid` int(10) NOT NULL DEFAULT '-1',
+  `copy` int(10) NOT NULL DEFAULT '-1',
+  `copyurl` varchar(255) NOT NULL DEFAULT '',
+  `type` varchar(20) NOT NULL DEFAULT 'blog',
+  `views` int(10) unsigned NOT NULL DEFAULT '0',
+  `comnum` int(10) unsigned NOT NULL DEFAULT '0',
+  `attnum` int(10) unsigned NOT NULL DEFAULT '0',
+  `top` enum('n','y') NOT NULL DEFAULT 'n',
+  `sortop` enum('n','y') NOT NULL DEFAULT 'n',
+  `hide` enum('n','y') NOT NULL DEFAULT 'n',
+  `checked` enum('n','y') NOT NULL DEFAULT 'y',
+  `allow_remark` enum('n','y') NOT NULL DEFAULT 'y',
+  `password` varchar(255) NOT NULL DEFAULT '',
+  `template` varchar(255) NOT NULL DEFAULT '',
+  `tags` text,
+  PRIMARY KEY (`gid`),
+  KEY `author` (`author`),
+  KEY `views` (`views`),
+  KEY `comnum` (`comnum`),
+  KEY `sortid` (`sortid`),
+  KEY `top` (`top`,`date`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+INSERT INTO emlog_blog VALUES('2','pixel论坛网开通了！点击前来围观！','1666792139','<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=280 height=52 src=\"//music.163.com/outchain/player?type=2&id=412178169&auto=1&height=32\"></iframe><p>&nbsp;</p><h1 style=\"text-align: center;\">ヾ(≧▽≦*)o pixel编程论坛开通了！<strong>开通了！</strong></h1><p style=\"text-align: center;\"><span style=\"color: #00ff00;\"><strong>站长QQ：3227106413</strong></span></p><p style=\"text-align: center;\"><span style=\"color: #00ff00;\"><strong>欢迎加入我们的官方QQ群：656310656</strong></span></p><h2 style=\"text-align: center;\"><span style=\"color: #00ffff;\">更多功能开发中~敬请期待</span></h2><h1 style=\"text-align: center;\"><span style=\"color: #ff0000;\">我们的网址：<a href=\"http://emo.pozer.cn/\" target=\"_blank\" rel=\"noopener\">http://emo.pozer.cn/</a></span></h1><div><!--网站声明代码start--><div><fieldset style=\"border: 1px dashed #008cff; padding: 10px; border-radius: 5px; line-height: 2em; color: #6d6d6d;\"><legend style=\"width: 30%; text-align: center; background-color: #008cff; border-radius: 5px; background-image: linear-gradient(to right, #FFCC99, #FF99CC);\" align=\"center\"> 版权声明 </legend> 1、本网站名称：<span style=\"color: #3333ff;\"><span style=\"color: #ff6666; font-size: 18px;\"><strong>pixel论坛网</strong></span></span><br />2、本站永久网址：<span style=\"color: #ff6666;\">emo.pozer.cn</span><br />3、本网站的文章部分内容可能来源于网络，仅供大家学习与参考，如有侵权，请联系站长邮箱aabbcc1039@163.com进行删除处理。<br />4、本站一切资源不代表本站立场，并不代表本站赞同其观点和对其真实性负责。<br />5、本站一律禁止以任何方式发布或转载任何违法的相关信息，访客发现请向站长举报<br />6、本站资源大多存储在云盘，如发现链接失效，请联系我们我们会第一时间更新。<br /><a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/\"><img style=\"border-width: 0;\" src=\"https://img.imgdb.cn/item/6050fe2a524f85ce2946f7a0.png\" alt=\"知识共享许可协议\" /></a><br />本作品采用<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/\">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可 <br /></a></fieldset><a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/\"> </a></div><a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/\"> <!--网站声明代码end--><br /></a></div><p><script src=\"https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js\"></script></p><p>&nbsp;</p>','','','','1','1','1','','blog','71','1','0','y','y','n','y','y','','','');
+INSERT INTO emlog_blog VALUES('1','网站介绍','1666879657','<h1 style=\"text-align: center;\"><span style=\"color: #00ccff;\">pixel论坛网</span></h1><h3><span style=\"color: #000000;\">介绍：</span></h3><p><span style=\"color: #ff0000;\">&nbsp; pixel论坛网始于2022/10/25 是由一名<span style=\"color: #00ff00;\">12岁的初一学生独立创建的一个编程 计算机类型的论坛！</span></span></p><h2><strong><em><span style=\"color: #ff0000;\"><span style=\"color: #00ff00;\">一般分为&nbsp;<span style=\"color: #00ffff;\">C++&nbsp;C#&nbsp;Java&nbsp;Python&nbsp;HTML/CSS PHP几大类</span></span></span></em></strong></h2><h3><span style=\"color: #ff0000;\"><strong><em>pixel论坛网 是为广大网友提供的编程交流论坛&nbsp; 无论是初学者 还是大神&nbsp;</em></strong></span></h3><p>&nbsp;</p><p>&nbsp;</p>','','','','1','-1','-1','','blog','0','0','0','n','n','y','y','n','','','');
+
+DROP TABLE IF EXISTS emlog_comment;
+CREATE TABLE `emlog_comment` (
+  `cid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `gid` int(10) unsigned NOT NULL DEFAULT '0',
+  `pid` int(10) unsigned NOT NULL DEFAULT '0',
+  `date` bigint(20) NOT NULL,
+  `poster` varchar(20) NOT NULL DEFAULT '',
+  `comment` text NOT NULL,
+  `mail` varchar(60) NOT NULL DEFAULT '',
+  `url` varchar(75) NOT NULL DEFAULT '',
+  `ip` varchar(128) NOT NULL DEFAULT '',
+  `hide` enum('n','y') NOT NULL DEFAULT 'n',
+  `useragent` varchar(128) NOT NULL DEFAULT '',
+  PRIMARY KEY (`cid`),
+  KEY `gid` (`gid`),
+  KEY `date` (`date`),
+  KEY `hide` (`hide`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+INSERT INTO emlog_comment VALUES('1','2','0','1666792857','keyudong','666！！！','aabbcc1039@163.com','http://emo.pozer.cn/','120.231.49.142','n','');
+
+DROP TABLE IF EXISTS emlog_options;
+CREATE TABLE `emlog_options` (
+  `option_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `option_name` varchar(255) NOT NULL,
+  `option_value` longtext NOT NULL,
+  PRIMARY KEY (`option_id`),
+  KEY `option_name` (`option_name`)
+) ENGINE=MyISAM AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
+
+INSERT INTO emlog_options VALUES('1','blogname','pixel论坛网');
+INSERT INTO emlog_options VALUES('2','bloginfo','编程 计算机论坛');
+INSERT INTO emlog_options VALUES('3','site_title','');
+INSERT INTO emlog_options VALUES('4','site_description','');
+INSERT INTO emlog_options VALUES('5','site_key','编程论坛');
+INSERT INTO emlog_options VALUES('6','log_title_style','0');
+INSERT INTO emlog_options VALUES('7','blogurl','http://emo.pozer.cn/');
+INSERT INTO emlog_options VALUES('8','icp','');
+INSERT INTO emlog_options VALUES('9','footer_info','<!DOCTYPE html>\r\n<html >\r\n<script charset=\"UTF-8\" id=\"LA_COLLECT\" src=\"//sdk.51.la/js-sdk-pro.min.js\"></script>\r\n<script>LA.init({id: \"JrOjnZxYv6Ln6BP8\",ck: \"JrOjnZxYv6Ln6BP8\"})</script>\r\n<html lang=\"en\">\r\n<a target=\"_blank\" title=\"51la网站统计\" href=\"https://v6.51.la/land/JrOjnZxYv6Ln6BP8\"><img src=\"https://sdk.51.la/icon/1-1.png\"></a>\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>樱花特效</title>\r\n</head>\r\n\r\n<body>\r\n    <script type=\"text/javascript\"\r\n        src=\"https://cdn.jsdelivr.net/gh/Fuukei/Public_Repository@latest/static/js/sakura-less.js\"></script>\r\n</body>\r\n\r\n</html>\r\n<html lang=\"en\">\r\n \r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Document</title>\r\n</head>\r\n<body>\r\n    <script>\r\n        (function () {\r\n            var a_idx = 0;\r\n            window.onclick = function (event) {\r\n                var a = new Array(\"你干嘛哈哈哈\", \"只因你太美\", \"奥力给！\", \"Java\", \"C++\", \"HTML\", \"CSS\", \"C#\", \"php\",\"ikun\",\"唱\",\"跳\",\"rap\",\"篮球\",\"muse\",\"练习时长两年半\");\r\n \r\n                var heart = document.createElement(\"b\"); //创建b元素\r\n                heart.onselectstart = new Function(\'event.returnValue=false\'); //防止拖动\r\n \r\n                document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上\r\n                a_idx = (a_idx + 1) % a.length;\r\n                heart.style.cssText = \"position: fixed;left:-100%;\"; //给p元素设置样式\r\n \r\n                var f = 16, // 字体大小\r\n                    x = event.clientX - f / 2, // 横坐标\r\n                    y = event.clientY - f, // 纵坐标\r\n                    c = randomColor(), // 随机颜色\r\n                    a = 1, // 透明度\r\n                    s = 1.2; // 放大缩小\r\n \r\n                var timer = setInterval(function () { //添加定时器\r\n                    if (a <= 0) {\r\n                        document.body.removeChild(heart);\r\n                        clearInterval(timer);\r\n                    } else {\r\n                        heart.style.cssText = \"font-size:16px;cursor: default;position: fixed;color:\" +\r\n                            c + \";left:\" + x + \"px;top:\" + y + \"px;opacity:\" + a + \";transform:scale(\" +\r\n                            s + \");\";\r\n \r\n                        y--;\r\n                        a -= 0.016;\r\n                        s += 0.002;\r\n                    }\r\n                }, 15)\r\n \r\n            }\r\n            // 随机颜色\r\n            function randomColor() {\r\n \r\n                return \"rgb(\" + (~~(Math.random() * 255)) + \",\" + (~~(Math.random() * 255)) + \",\" + (~~(Math\r\n                .random() * 255)) + \")\";\r\n \r\n            }\r\n        }());\r\n    </script>\r\n</body>\r\n \r\n</html>\r\n\r\n<!-- 雪花飘落效果样式二 -->\r\n<script type=\"text/javascript\" src=\"https://api.azpay.cn/729/4.js\"></script>\r\n\r\n<!--动态标题-->\r\n<script>\r\n//崩溃欺骗\r\nvar OriginTitle = document.title;\r\nvar titleTime;\r\ndocument.addEventListener(\"visibilitychange\", function () {\r\nif (document.hidden) {\r\ndocument.title = \"╭(°A°)╮ 页面崩溃啦 ~\";\r\nclearTimeout(titleTime);\r\n} else {\r\ndocument.title = \"(ฅ>ω<*ฅ) 噫又好了~\" + OriginTitle;\r\ntitleTime = setTimeout(function () {\r\ndocument.title = OriginTitle;\r\n}, 2000);\r\n}\r\n});\r\n</script>\r\n\r\n<!-- 灯笼样式开始 -->\r\n<style>\r\n   \r\n    @media only screen and (max-width: 760px) {\r\n        .deng-box, .deng-box1 {\r\n            display:none;\r\n        }\r\n    }\r\n    @media only screen and (min-width: 768px) and (max-width: 1024px) {\r\n        .right {\r\n            float: left!important;\r\n        }\r\n    }\r\n    .deng-box {\r\n        position: fixed;\r\n        top: 20px;\r\n        left: 10px;\r\n        z-index: 3;\r\n    }\r\n    .deng-box1 {\r\n        position: fixed;\r\n        top: 20px;\r\n        right: 10px;\r\n        z-index: 3;\r\n    }\r\n    .deng-box1 .deng {\r\n        position: relative;\r\n        width: 120px;\r\n        height: 90px;\r\n        margin: 50px;\r\n        background: #d8000f;\r\n        background: rgba(216, 0, 15, 0.8);\r\n        border-radius: 50% 50%;\r\n        -webkit-transform-origin: 50% -100px;\r\n        -webkit-animation: swing 5s infinite ease-in-out;\r\n        box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);\r\n    }\r\n    .deng {\r\n        position: relative;\r\n        width: 120px;\r\n        height: 90px;\r\n        margin: 50px;\r\n        background: #d8000f;\r\n        background: rgba(216, 0, 15, 0.8);\r\n        border-radius: 50% 50%;\r\n        -webkit-transform-origin: 50% -100px;\r\n        -webkit-animation: swing 3s infinite ease-in-out;\r\n        box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);\r\n    }\r\n    .deng-a {\r\n        width: 100px;\r\n        height: 90px;\r\n        background: #d8000f;\r\n        background: rgba(216, 0, 15, 0.1);\r\n        margin: 12px 8px 8px 10px;\r\n        border-radius: 50% 50%;\r\n        border: 2px solid #dc8f03;\r\n    }\r\n    .deng-b {\r\n        width: 45px;\r\n        height: 90px;\r\n        background: #d8000f;\r\n        background: rgba(216, 0, 15, 0.1);\r\n        margin: -4px 8px 8px 26px;\r\n        border-radius: 50% 50%;\r\n        border: 2px solid #dc8f03;\r\n    }\r\n    .xian {\r\n        position: absolute;\r\n        top: -20px;\r\n        left: 60px;\r\n        width: 2px;\r\n        height: 20px;\r\n        background: #dc8f03;\r\n    }\r\n    .shui-a {\r\n        position: relative;\r\n        width: 5px;\r\n        height: 20px;\r\n        margin: -5px 0 0 59px;\r\n        -webkit-animation: swing 4s infinite ease-in-out;\r\n        -webkit-transform-origin: 50% -45px;\r\n        background: #ffa500;\r\n        border-radius: 0 0 5px 5px;\r\n    }\r\n    .shui-b {\r\n        position: absolute;\r\n        top: 14px;\r\n        left: -2px;\r\n        width: 10px;\r\n        height: 10px;\r\n        background: #dc8f03;\r\n        border-radius: 50%;\r\n    }\r\n    .shui-c {\r\n        position: absolute;\r\n        top: 18px;\r\n        left: -2px;\r\n        width: 10px;\r\n        height: 35px;\r\n        background: #ffa500;\r\n        border-radius: 0 0 0 5px;\r\n    }\r\n    .deng:before {\r\n        position: absolute;\r\n        top: -7px;\r\n        left: 29px;\r\n        height: 12px;\r\n        width: 60px;\r\n        content: \" \";\r\n        display: block;\r\n        z-index: 999;\r\n        border-radius: 5px 5px 0 0;\r\n        border: solid 1px #dc8f03;\r\n        background: #ffa500;\r\n        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);\r\n    }\r\n    .deng:after {\r\n        position: absolute;\r\n        bottom: -7px;\r\n        left: 10px;\r\n        height: 12px;\r\n        width: 60px;\r\n        content: \" \";\r\n        display: block;\r\n        margin-left: 20px;\r\n        border-radius: 0 0 5px 5px;\r\n        border: solid 1px #dc8f03;\r\n        background: #ffa500;\r\n        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);\r\n    }\r\n    .deng-t {\r\n        font-family: 华文行楷;\r\n        font-size: 26px;\r\n        color: #dc8f03;\r\n        font-weight: bold;\r\n        line-height: 44px;\r\n        text-align: center;\r\n    }\r\n    .night .deng-t,\r\n    .night .deng-box,\r\n    .night .deng-box1 {\r\n        background: transparent !important;\r\n    }\r\n    @-moz-keyframes swing {\r\n        0% {\r\n                -moz-transform: rotate(-10deg)\r\n        }\r\n        50% {\r\n             -moz-transform: rotate(10deg)\r\n        }\r\n        100% {\r\n                -moz-transform: rotate(-10deg)\r\n        }\r\n    }\r\n    @-webkit-keyframes swing {\r\n        0% {\r\n                -webkit-transform: rotate(-10deg)\r\n        }\r\n        50% {\r\n                -webkit-transform: rotate(10deg)\r\n        }\r\n        100% {\r\n                -webkit-transform: rotate(-10deg)\r\n        }\r\n    }\r\n</style>\r\n<div class=\"deng-box\">\r\n        <div class=\"deng\">\r\n            <div class=\"xian\"></div>\r\n            <div class=\"deng-a\">\r\n                <div class=\"deng-b\"><div class=\"deng-t\">喜迎</div></div>\r\n            </div>\r\n            <div class=\"shui shui-a\"><div class=\"shui-c\"></div><div class=\"shui-b\"></div></div>\r\n        </div>\r\n    </div>\r\n<div class=\"deng-box1\">\r\n        <div class=\"deng\">\r\n            <div class=\"xian\"></div>\r\n            <div class=\"deng-a\">\r\n                <div class=\"deng-b\"><div class=\"deng-t\">新春</div></div>\r\n            </div>\r\n            <div class=\"shui shui-a\"><div class=\"shui-c\"></div><div class=\"shui-b\"></div></div>\r\n        </div>\r\n    </div>\r\n<!-- 元宵节灯笼样式结束 -->\r\n\r\n<div id=\"cc-myssl-id\" style=\"position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;\">\r\n<a><img src=\"https://static.myssl.com/res/images/myssl-id.png\"  style=\"width:100%;height:100%\"></a></div>\r\n\r\n\r\n\r\n<script src=\"https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js\"></script>\r\n  <!--小帅哥： https://unpkg.com/live2d-widget-model-chitose@1.0.5/assets/chitose.model.json-->\r\n   <!-- 上边的不一样连接显示的是不一样的小人，这个能够根据须要来选择 下边的初始化部分，能够修改宽高来修改小人的大小，或者是鼠标移动到小人上的透明度，也能够修改小人在页面出现的位置。 -->\r\n  <script>\r\n    /*https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json*/\r\n    L2Dwidget.init({ \"model\": { jsonPath:\r\n          \"https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json\",\r\n        \"scale\": 1 }, \"display\": { \"position\": \"right\", \"width\": 100, \"height\": 190,\r\n        \"hOffset\": 0, \"vOffset\": -20 }, \"mobile\": { \"show\": true, \"scale\": 0.5 },\r\n      \"react\": { \"opacityDefault\": 0.8, \"opacityOnHover\": 0.1 } });\r\n  </script>\r\n\r\n\r\n<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=298 height=52 src=\"//music.163.com/outchain/player?type=2&id=4010201&auto=1&height=32\"></iframe>\r\n');
+INSERT INTO emlog_options VALUES('10','admin_perpage_num','15');
+INSERT INTO emlog_options VALUES('11','rss_output_num','10');
+INSERT INTO emlog_options VALUES('12','rss_output_fulltext','y');
+INSERT INTO emlog_options VALUES('13','index_lognum','10');
+INSERT INTO emlog_options VALUES('14','index_comnum','10');
+INSERT INTO emlog_options VALUES('15','index_twnum','10');
+INSERT INTO emlog_options VALUES('16','index_newtwnum','5');
+INSERT INTO emlog_options VALUES('17','index_newlognum','5');
+INSERT INTO emlog_options VALUES('18','index_randlognum','5');
+INSERT INTO emlog_options VALUES('19','index_hotlognum','5');
+INSERT INTO emlog_options VALUES('20','comment_subnum','20');
+INSERT INTO emlog_options VALUES('21','nonce_templet','default');
+INSERT INTO emlog_options VALUES('22','admin_style','admin-default');
+INSERT INTO emlog_options VALUES('23','tpl_sidenum','1');
+INSERT INTO emlog_options VALUES('24','comment_code','n');
+INSERT INTO emlog_options VALUES('25','comment_needchinese','n');
+INSERT INTO emlog_options VALUES('26','comment_interval','10');
+INSERT INTO emlog_options VALUES('27','isgravatar','y');
+INSERT INTO emlog_options VALUES('28','isthumbnail','y');
+INSERT INTO emlog_options VALUES('29','att_maxsize','20480');
+INSERT INTO emlog_options VALUES('30','att_type','rar,zip,gif,jpg,jpeg,png,txt,pdf,docx,doc,xls,xlsx');
+INSERT INTO emlog_options VALUES('31','att_imgmaxw','420');
+INSERT INTO emlog_options VALUES('32','att_imgmaxh','460');
+INSERT INTO emlog_options VALUES('33','comment_paging','y');
+INSERT INTO emlog_options VALUES('34','comment_pnum','10');
+INSERT INTO emlog_options VALUES('35','comment_order','newer');
+INSERT INTO emlog_options VALUES('36','login_code','n');
+INSERT INTO emlog_options VALUES('37','iscomment','y');
+INSERT INTO emlog_options VALUES('38','ischkcomment','n');
+INSERT INTO emlog_options VALUES('39','isurlrewrite','0');
+INSERT INTO emlog_options VALUES('40','isalias','n');
+INSERT INTO emlog_options VALUES('41','isalias_html','n');
+INSERT INTO emlog_options VALUES('42','isgzipenable','y');
+INSERT INTO emlog_options VALUES('43','isexcerpt','n');
+INSERT INTO emlog_options VALUES('44','excerpt_subnum','300');
+INSERT INTO emlog_options VALUES('45','istwitter','y');
+INSERT INTO emlog_options VALUES('46','timezone','Asia/Shanghai');
+INSERT INTO emlog_options VALUES('47','active_plugins','a:1:{i:0;s:13:\"tips/tips.php\";}');
+INSERT INTO emlog_options VALUES('48','widget_title','a:13:{s:7:\"blogger\";s:12:\"个人资料\";s:8:\"calendar\";s:6:\"日历\";s:7:\"twitter\";s:12:\"最新微语\";s:3:\"tag\";s:6:\"标签\";s:4:\"sort\";s:6:\"分类\";s:7:\"archive\";s:6:\"存档\";s:7:\"newcomm\";s:12:\"最新评论\";s:6:\"newlog\";s:12:\"最新文章\";s:10:\"random_log\";s:12:\"随机文章\";s:6:\"hotlog\";s:12:\"热门文章\";s:4:\"link\";s:6:\"链接\";s:6:\"search\";s:6:\"搜索\";s:11:\"custom_text\";s:18:\"自定义组件 ()\";}');
+INSERT INTO emlog_options VALUES('49','custom_widget','a:2:{s:11:\"custom_wg_1\";a:2:{s:5:\"title\";s:6:\"粒子\";s:7:\"content\";s:369:\"/*粒子线条，鼠标移动会以鼠标为中心吸附的特效*/<script id=\"c_n_script\" src=\"https://blog-static.cnblogs.com/files/hxun/canvas-nest.js\" color=\"255,0,255\" opacity=\"1\" count=\"100\" zindex=\"-2\">  if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {      //这里可以写移动端展示效果代码，本人没试过  }\r\n</script>\";}s:11:\"custom_wg_2\";a:2:{s:5:\"title\";s:6:\"音乐\";s:7:\"content\";s:171:\"<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=298 height=52 src=\"//music.163.com/outchain/player?type=2&id=4010201&auto=1&height=32\"></iframe>\";}}');
+INSERT INTO emlog_options VALUES('50','widgets1','a:5:{i:0;s:7:\"archive\";i:1;s:4:\"link\";i:2;s:6:\"search\";i:3;s:7:\"blogger\";i:4;s:8:\"calendar\";}');
+INSERT INTO emlog_options VALUES('51','widgets2','');
+INSERT INTO emlog_options VALUES('52','widgets3','');
+INSERT INTO emlog_options VALUES('53','widgets4','');
+INSERT INTO emlog_options VALUES('54','detect_url','y');
+INSERT INTO emlog_options VALUES('55','webscan_log','0');
+INSERT INTO emlog_options VALUES('56','webscan_switch','1');
+INSERT INTO emlog_options VALUES('57','webscan_post','0');
+INSERT INTO emlog_options VALUES('58','webscan_get','0');
+INSERT INTO emlog_options VALUES('59','webscan_cookie','1');
+INSERT INTO emlog_options VALUES('60','webscan_referre','0');
+INSERT INTO emlog_options VALUES('61','webscan_white_directory','admin|\\/content\\/');
+INSERT INTO emlog_options VALUES('62','webscan_block_ip','0.0.0.0');
+INSERT INTO emlog_options VALUES('63','attacks','10');
+INSERT INTO emlog_options VALUES('64','MAIL_SMTP','stmp.163.com');
+INSERT INTO emlog_options VALUES('65','MAIL_PORT','25');
+INSERT INTO emlog_options VALUES('66','MAIL_SENDEMAIL','');
+INSERT INTO emlog_options VALUES('67','MAIL_PASSWORD','');
+INSERT INTO emlog_options VALUES('68','MAIL_TOEMAIL','');
+INSERT INTO emlog_options VALUES('69','MAIL_SENDTYPE','0');
+INSERT INTO emlog_options VALUES('70','SEND_MAIL','0');
+INSERT INTO emlog_options VALUES('71','REPLY_MAIL','0');
+
+DROP TABLE IF EXISTS emlog_navi;
+CREATE TABLE `emlog_navi` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `naviname` varchar(30) NOT NULL DEFAULT '',
+  `url` varchar(75) NOT NULL DEFAULT '',
+  `newtab` enum('n','y') NOT NULL DEFAULT 'n',
+  `hide` enum('n','y') NOT NULL DEFAULT 'n',
+  `taxis` int(10) unsigned NOT NULL DEFAULT '0',
+  `pid` int(10) unsigned NOT NULL DEFAULT '0',
+  `isdefault` enum('n','y') NOT NULL DEFAULT 'n',
+  `type` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `type_id` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+INSERT INTO emlog_navi VALUES('1','首页','','n','n','1','0','y','1','0');
+INSERT INTO emlog_navi VALUES('2','微语','t','n','n','2','0','y','2','0');
+INSERT INTO emlog_navi VALUES('3','登录','admin','n','n','3','0','y','3','0');
+
+DROP TABLE IF EXISTS emlog_sort;
+CREATE TABLE `emlog_sort` (
+  `sid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sortname` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(200) NOT NULL DEFAULT '',
+  `taxis` int(10) unsigned NOT NULL DEFAULT '0',
+  `pid` int(10) unsigned NOT NULL DEFAULT '0',
+  `description` text NOT NULL,
+  `template` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`sid`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+INSERT INTO emlog_sort VALUES('1','默认','default','1','0','','');
+INSERT INTO emlog_sort VALUES('2','Java','Java','1','0','Java专栏','');
+
+DROP TABLE IF EXISTS emlog_sortlink;
+CREATE TABLE `emlog_sortlink` (
+  `linksort_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `linksort_name` varchar(255) NOT NULL DEFAULT '',
+  `taxis` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`linksort_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+INSERT INTO emlog_sortlink VALUES('1','默认分类','0');
+
+DROP TABLE IF EXISTS emlog_link;
+CREATE TABLE `emlog_link` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `sitename` varchar(30) NOT NULL DEFAULT '',
+  `siteurl` varchar(75) NOT NULL DEFAULT '',
+  `description` varchar(255) NOT NULL DEFAULT '',
+  `sitepic` varchar(255) NOT NULL DEFAULT '',
+  `linksortid` int(10) unsigned NOT NULL DEFAULT '0',
+  `hide` enum('n','y') NOT NULL DEFAULT 'n',
+  `taxis` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+INSERT INTO emlog_link VALUES('1','emlog','http://www.emlog.net','官方主页','','1','n','0');
+
+DROP TABLE IF EXISTS emlog_tag;
+CREATE TABLE `emlog_tag` (
+  `tid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `tagname` varchar(60) NOT NULL DEFAULT '',
+  `gid` text NOT NULL,
+  PRIMARY KEY (`tid`),
+  KEY `tagname` (`tagname`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+INSERT INTO emlog_tag VALUES('1','默认','1');
+
+DROP TABLE IF EXISTS emlog_twitter;
+CREATE TABLE `emlog_twitter` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` text NOT NULL,
+  `img` varchar(200) DEFAULT NULL,
+  `author` int(10) NOT NULL DEFAULT '1',
+  `date` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `author` (`author`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+INSERT INTO emlog_twitter VALUES('3','岁月静好','','1','1666798201');
+INSERT INTO emlog_twitter VALUES('4','月是人间散客，卿是人间绝色，亦是人间难得','','1','1666879501');
+
+DROP TABLE IF EXISTS emlog_user;
+CREATE TABLE `emlog_user` (
+  `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL DEFAULT '',
+  `password` varchar(64) NOT NULL DEFAULT '',
+  `nickname` varchar(20) NOT NULL DEFAULT '',
+  `role` varchar(60) NOT NULL DEFAULT '',
+  `ischeck` enum('n','y') NOT NULL DEFAULT 'n',
+  `photo` varchar(255) NOT NULL DEFAULT '',
+  `email` varchar(60) NOT NULL DEFAULT '',
+  `description` varchar(255) NOT NULL DEFAULT '',
+  `website` varchar(75) NOT NULL DEFAULT '',
+  PRIMARY KEY (`uid`),
+  KEY `username` (`username`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+INSERT INTO emlog_user VALUES('1','keyudong','$P$Bwq0pU91A8/VQoJVAIJhCBna8HVR4u0','keyudong','admin','n','../content/uploadfile/202210/thum-74de1666792449.jpg','aabbcc1039@163.com','站长UID:0001','http://emo.pozer.cn/');
+INSERT INTO emlog_user VALUES('2','叶某','$P$B9HdPqTXZFFldRlW.GB5w3g1xwNXet0','UID:0002','admin','n','','','网站官方管理员','http://emo.pozer.cn/');
+INSERT INTO emlog_user VALUES('3','公用账号','$P$Bt5nEiI9tyhwAE2ZNeuXTjB9Ix5Dr70','','writer','y','','','','');
+INSERT INTO emlog_user VALUES('4','UID:0003','$P$BMCh1z2jvGw0b1sh.fAvl9jdk8h9YZ1','','writer','n','','','','');
+
+
+#the end of backup
 
 
 
